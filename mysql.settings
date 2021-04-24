@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="mysqlbackup" GeneratedClassName="mysql">
+  <Profiles />
+  <Settings>
+    <Setting Name="mysql_username" Type="System.String" Scope="User">
+      <Value Profile="(Default)">root</Value>
+    </Setting>
+    <Setting Name="mysql_password" Type="System.String" Scope="User">
+      <Value Profile="(Default)">toor</Value>
+    </Setting>
+    <Setting Name="mysql_database" Type="System.String" Scope="User">
+      <Value Profile="(Default)">database1</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

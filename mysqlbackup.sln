@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mysqlbackup", "mysqlbackup.csproj", "{4E54810F-12EC-4EE1-A241-EE8546E14706}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4E54810F-12EC-4EE1-A241-EE8546E14706}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E54810F-12EC-4EE1-A241-EE8546E14706}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E54810F-12EC-4EE1-A241-EE8546E14706}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E54810F-12EC-4EE1-A241-EE8546E14706}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D654534B-4CC8-4B2E-BE3A-56076BE421C1}
+	EndGlobalSection
+EndGlobal
