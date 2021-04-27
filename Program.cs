@@ -39,10 +39,11 @@ namespace mysqlbackup
 
             try
             {
-                if (p.Start())//执行
+                if (p.Start())
                 {
-                    p.WaitForExit();//等待程序执行完，退出进程
-                    //strOutput = p.StandardOutput.ReadToEnd();//获取返回值
+                    p.WaitForExit();
+                    strOutput = p.StandardOutput.ReadToEnd();
+                    Console.Out.WriteLine(strOutput);
                 }
             }
             catch (Exception exp)
