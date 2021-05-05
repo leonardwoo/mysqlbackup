@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
+using System.IO;
 
 namespace mysqlbackup
 {
@@ -10,12 +8,18 @@ namespace mysqlbackup
     {
         static void Main(string[] args)
         {
+            Console.Out.WriteLine("MySQL/MariaDB Backup");
             mysql setting = mysql.Default;
             DateTime now = DateTime.Now;
             string datatime = now.ToString("yyyyMMddhhmmss");
             string strCmd = string.Format("mysqldump -u{0} -p{1} {2}>{3}", 
                 setting.mysql_username, setting.mysql_password, setting.mysql_database,(setting.mysql_database + "-" + datatime) +".sql.bak");
-            new Program().StartCmd(".\\", strCmd);
+            string echo = new Program().StartCmd(".\\", strCmd);
+            if ("".Equals(echo))
+            {
+                echo = "Database " + setting.mysql_database + " has been successfully exported";
+            }
+            Console.Out.WriteLine(echo);
         }
 
         /// <summary>
@@ -41,9 +45,14 @@ namespace mysqlbackup
             {
                 if (p.Start())
                 {
+                    StreamReader reader = p.StandardOutput;//截取输出流
+                    StreamReader error = p.StandardError;//截取错误信息
+                    strOutput = reader.ReadToEnd();
+                    if (error != null)
+                    {
+                        Console.Error.WriteLine(error.ReadToEnd());
+                    }
                     p.WaitForExit();
-                    strOutput = p.StandardOutput.ReadToEnd();
-                    Console.Out.WriteLine(strOutput);
                 }
             }
             catch (Exception exp)
