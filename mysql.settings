@@ -8,6 +8,9 @@
     <Setting Name="mysql_password" Type="System.String" Scope="User">
       <Value Profile="(Default)">toor</Value>
     </Setting>
+    <Setting Name="mysql_pathname" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Program Files\MariaDB 10.8\bin\mariadb-dump.exe</Value>
+    </Setting>
     <Setting Name="mysql_database" Type="System.String" Scope="User">
       <Value Profile="(Default)">database1</Value>
     </Setting>

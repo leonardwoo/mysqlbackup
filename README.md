@@ -1,1 +1,1 @@
-# mysql backup
+# MySQL/MariaDB Backup

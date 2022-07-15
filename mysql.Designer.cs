@@ -12,7 +12,7 @@ namespace mysqlbackup {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.8.1.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.2.0.0")]
     internal sealed partial class mysql : global::System.Configuration.ApplicationSettingsBase {
         
         private static mysql defaultInstance = ((mysql)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new mysql())));
@@ -49,7 +49,19 @@ namespace mysqlbackup {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("database1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Program Files\\MariaDB 10.8\\bin\\mariadb-dump.exe")]
+        public string mysql_pathname {
+            get {
+                return ((string)(this["mysql_pathname"]));
+            }
+            set {
+                this["mysql_pathname"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("pigeon")]
         public string mysql_database {
             get {
                 return ((string)(this["mysql_database"]));

@@ -12,7 +12,7 @@ namespace mysqlbackup
             mysql setting = mysql.Default;
             DateTime now = DateTime.Now;
             string datatime = now.ToString("yyyyMMddhhmmss");
-            string strCmd = string.Format("mysqldump -u{0} -p{1} {2}>{3}", 
+            string strCmd = string.Format("{0} -u{1} -p{2} {3}>{4}", setting.mysql_pathname, 
                 setting.mysql_username, setting.mysql_password, setting.mysql_database,(setting.mysql_database + "-" + datatime) +".sql.bak");
             string echo = new Program().StartCmd(".\\", strCmd);
             if ("".Equals(echo))
@@ -23,41 +23,44 @@ namespace mysqlbackup
         }
 
         /// <summary>
-        /// 执行cmd命令
+        /// Run command line
         /// </summary>
-        /// <param name="workingDirectory">要启动的进程目录</param>
-        /// <param name="command">要执行的命令</param>
+        /// <param name="workingDirectory">working directory</param>
+        /// <param name="command">commang</param>
         public string StartCmd(string workingDirectory, string command)
         {
             string strOutput = "";
 
             Process p = new Process();
             p.StartInfo.FileName = "cmd.exe";
-            p.StartInfo.Arguments = "/C" + command;// "/c"标示执行完命令后退出
+            p.StartInfo.Arguments = "/C" + command;
             p.StartInfo.WorkingDirectory = workingDirectory;
-            p.StartInfo.UseShellExecute = false;//不启用shell 启动进程
-            p.StartInfo.RedirectStandardInput = true;//重定向输入
-            p.StartInfo.RedirectStandardOutput = true;//重定向标准输出
-            p.StartInfo.RedirectStandardError = true;//重定向错误输出
-            p.StartInfo.CreateNoWindow = true;//不创建新窗口
+            p.StartInfo.UseShellExecute = false;
+            p.StartInfo.RedirectStandardInput = true;
+            p.StartInfo.RedirectStandardOutput = true;
+            p.StartInfo.RedirectStandardError = true;
+            p.StartInfo.CreateNoWindow = true;
 
             try
             {
                 if (p.Start())
                 {
-                    StreamReader reader = p.StandardOutput;//截取输出流
-                    StreamReader error = p.StandardError;//截取错误信息
+                    StreamReader reader = p.StandardOutput;
+                    StreamReader error = p.StandardError;
                     strOutput = reader.ReadToEnd();
                     if (error != null)
                     {
                         Console.Error.WriteLine(error.ReadToEnd());
+                    } else
+                    {
+                        Console.WriteLine(reader.ReadToEnd());
                     }
                     p.WaitForExit();
                 }
             }
             catch (Exception exp)
             {
-               // MessageBox.Show(exp.Message, "软件提示");
+                Console.Error.WriteLine(exp.Message);
             }
             finally
             {
